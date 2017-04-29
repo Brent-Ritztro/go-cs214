@@ -3,7 +3,6 @@ package server
 import (
 	"fmt"
 	"net"
-	"os"
 )
 
 //RequestHandler is a type of function with handles a request given a connection
@@ -23,7 +22,6 @@ func StartListener(
 	if err != nil {
 		//print the error and exit if there is one
 		fmt.Println("Error listening:", err.Error())
-		os.Exit(1)
 	}
 
 	// Close the listener when the listender stops.
@@ -40,7 +38,6 @@ func StartListener(
 		//handle the error
 		if err != nil {
 			fmt.Println("Error accepting: ", err.Error())
-			os.Exit(1)
 		}
 
 		//logs an incoming message to the console

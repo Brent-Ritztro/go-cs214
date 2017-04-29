@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	connHost = "localhost"
+	connHost = ""
 	connPort = "3333"
 	connType = "tcp"
 )
@@ -18,6 +18,6 @@ func main() {
 		connType,
 		connHost,
 		connPort,
-		handler.Default,
+		handler.ProcessConnection,
 		true)
 }
