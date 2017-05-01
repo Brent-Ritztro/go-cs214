@@ -48,9 +48,12 @@ func ProcessConnection(conn net.Conn) {
 	// Builds the message.
 	n := bytes.Index(buf, []byte{0})
 	username := string(buf[:n-1])
-	//TODO check for error here
+	message := "User not found\n"
+
 	u := users[username]
-	message := u.returnFormattedData()
+	if u.name != "" {
+		message = u.returnFormattedData()
+	}
 
 	// Write the message in the connection channel.
 	conn.Write([]byte(message))
